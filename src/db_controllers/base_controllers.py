@@ -7,17 +7,9 @@ class BaseController(ABC):
         self.db_name = db_name
 
     @abstractmethod
-    def create_db(self) -> Optional[str]:
+    def _create_db(self) -> Optional[str]:
         """
         Creates a new database. May produce an exception.
         :return: str or None
         """
         pass
-
-
-class SQLController(BaseController):
-    pass
-
-
-class NoSQLController(BaseController):
-    pass

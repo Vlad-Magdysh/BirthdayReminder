@@ -10,7 +10,7 @@ REGISTERED_CONTROLLERS = {
 
 def get_db_controller(controller_name: str, *args, **kwargs) -> BaseController:
     """
-    Get an initialized controller for interacting with the database.
+    Get an initialized controller for interacting with the database;
     :param controller_name: controller class name
     :param args: necessary parameters for the controller initialization
     :param kwargs: necessary parameters for the controller initialization
