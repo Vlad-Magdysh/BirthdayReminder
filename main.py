@@ -1,6 +1,9 @@
 import argparse
 from enum import Enum, auto
 
+from config import Config
+from src.core.service import Service
+
 
 class ActionTypes(Enum):
     INIT = auto()
@@ -40,6 +43,15 @@ def main() -> None:
     action = get_action()
     # TODO implement proper logging
     print(f"Selected action {action}")
+    service = Service(config=Config())
+    if action == ActionTypes.DAILY_TASK:
+        pass
+    elif action == ActionTypes.UI:
+        pass
+    elif action == ActionTypes.INIT:
+        service.initialize_database()
+    elif action == ActionTypes.UNINSTALL:
+        pass
 
 
 if __name__ == "__main__":

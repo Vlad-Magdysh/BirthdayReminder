@@ -77,11 +77,6 @@ This feature lets you select the specific time you would like to be reminded abo
 ## Advanced Features & Options
 
 <details>
-<summary>Encryption of the Database</summary>
-This feature allows the database to be encrypted for added security. This is especially useful for sensitive data.
-</details>
-
-<details>
 <summary>Pre-Reminders</summary>
 In addition to the normal reminders on the day of the birthday, the system can be set to send out pre-reminders. This can be useful for those who want to prepare in advance.
 </details>
