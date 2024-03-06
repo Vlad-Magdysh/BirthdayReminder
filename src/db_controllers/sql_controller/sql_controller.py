@@ -4,7 +4,7 @@ from functools import wraps
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from .base_controllers import BaseController
+from ..base_controllers import BaseController
 
 
 class SQLController(BaseController):
@@ -16,6 +16,8 @@ class SQLController(BaseController):
         self.engine = create_engine(self.connection_url)
         # session_maker is a session factory
         self.session_maker = sessionmaker(bind=self.engine)
+        # Update SQLALCHEMY_DATABASE_URI variable for alembic migrations
+        self.config.SQLALCHEMY_DATABASE_URI = self.connection_url
 
     @property
     @abstractmethod

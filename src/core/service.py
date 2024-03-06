@@ -17,5 +17,5 @@ class Service:
         if self.config.DB_NAME is None:
             self.config.DB_NAME = f"birthday_{datetime.now().date().isoformat()}"
 
-        db_controller = get_db_controller(self.config.CONTROLLER_NAME, db_name=self.config.DB_NAME, init_db=True)
+        db_controller = get_db_controller(self.config.CONTROLLER_NAME, config=self.config, db_name=self.config.DB_NAME, init_db=True)
         update_configs_on_disk(self.config)

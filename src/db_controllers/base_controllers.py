@@ -3,8 +3,9 @@ from typing import Optional
 
 
 class BaseController(ABC):
-    def __init__(self, db_name):
+    def __init__(self, db_name, config=None):
         self.db_name = db_name
+        self.config = config
 
     @abstractmethod
     def _create_db(self) -> Optional[str]:

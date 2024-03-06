@@ -11,6 +11,7 @@ class Config:
     """
     DB_NAME = os.getenv("DB_NAME")
     CONTROLLER_NAME = os.getenv("DB_CONTROLLER", "")
+    SQLALCHEMY_DATABASE_URI = os.getenv("SQLALCHEMY_DATABASE_URI", "")
 
 
 def update_configs_on_disk(config: Config):
