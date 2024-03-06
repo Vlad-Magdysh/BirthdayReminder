@@ -1,7 +1,7 @@
 import os
 from datetime import datetime
 
-from config import Config
+from config import Config, update_configs_on_disk
 from src.db_controllers import get_db_controller
 
 
@@ -15,8 +15,7 @@ class Service:
         :return: None
         """
         if self.config.DB_NAME is None:
-            db_name = f"birthday_{datetime.now().date().isoformat()}"
-        else:
-            db_name = self.config.DB_NAME
-        db_controller = get_db_controller(self.config.CONTROLLER_NAME, db_name=db_name, init_db=True)
+            self.config.DB_NAME = f"birthday_{datetime.now().date().isoformat()}"
 
+        db_controller = get_db_controller(self.config.CONTROLLER_NAME, db_name=self.config.DB_NAME, init_db=True)
+        update_configs_on_disk(self.config)
