@@ -1,4 +1,4 @@
-from .base_controllers import BaseController
+from .sql_base_controller import SQLBaseController
 from .sqlite_controller import SQLiteController
 
 DEFAULT_CONTROLLER_CLASS = SQLiteController
@@ -8,7 +8,7 @@ REGISTERED_CONTROLLERS = {
 }
 
 
-def get_db_controller(controller_name: str, *args, **kwargs) -> BaseController:
+def get_db_controller(controller_name: str, *args, **kwargs) -> SQLBaseController:
     """
     Get an initialized controller for interacting with the database;
     :param controller_name: controller class name

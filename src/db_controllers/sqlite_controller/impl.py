@@ -2,10 +2,10 @@ import os.path
 import sqlite3
 from typing import Optional
 
-from src.db_controllers.sql_controller import SQLController
+from src.db_controllers.sql_base_controller import SQLBaseController
 
 
-class SQLiteController(SQLController):
+class SQLiteController(SQLBaseController):
     def __init__(self, db_name: str, *args, **kwargs):
         self._file_name = f"sqlite_{db_name}.db"
         self.db_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), self._file_name)
