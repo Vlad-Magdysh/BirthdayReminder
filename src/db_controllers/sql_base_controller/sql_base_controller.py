@@ -37,7 +37,7 @@ class SQLBaseController(ABC):
     def connection_url(self):
         pass
 
-    def get_birthdays(self) -> list[Type[Birthday]]:
+    def get_birthdays(self) -> List[Type[Birthday]]:
         birthdays = self.session.query(Birthday).all()
         return birthdays
 
@@ -50,15 +50,15 @@ class SQLBaseController(ABC):
         self.session.commit()
         return birthday
 
-    def create_notification(self, birthday_id: int, notif_type: str, title: str, text: str) -> Notification:
+    def create_notification(self, birthdays: List[Type[Birthday]], notif_type: str, title: str, text: str) -> Notification:
         notification = Notification(
             title=title,
             text=text,
             notification_type=notif_type,
             status=NotificationStatus.CREATED.value,
             created_on=datetime.datetime.today(),
-            birthday_id=birthday_id,
         )
+        notification.birthdays.extend(birthdays)
         self.session.add(notification)
         self.session.commit()
         return notification

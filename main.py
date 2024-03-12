@@ -49,7 +49,7 @@ def main() -> None:
     elif action == ActionTypes.UI:
         pass
     elif action == ActionTypes.INIT:
-        service.initialize_database()
+        service.initialize_database(service.config)
     elif action == ActionTypes.UNINSTALL:
         pass
 
